@@ -94,7 +94,7 @@
 
 
 - (NSUInteger)selectedIndex {
-	return [self.viewControllers indexOfObject:self.selectedViewController];
+	return (nil == self.selectedViewController) ? 0 : [self.viewControllers indexOfObject:self.selectedViewController];
 }
 
 - (void)setSelectedIndex:(NSUInteger)aSelectedIndex {
@@ -108,7 +108,9 @@
 		[tabs addObject:[[[BCTab alloc] initWithIconImageName:[vc iconImageName]] autorelease]];
 	}
 	self.tabBar.tabs = tabs;
-	[self.tabBar setSelectedTab:[self.tabBar.tabs objectAtIndex:self.selectedIndex] animated:NO];
+    if (self.tabBar.tabs.count > 0) {
+        [self.tabBar setSelectedTab:[self.tabBar.tabs objectAtIndex:self.selectedIndex] animated:NO];
+    }
 }
 
 - (void)viewDidUnload {
@@ -122,11 +124,11 @@
 		viewControllers = [array retain];
 		
 		if (viewControllers != nil) {
+            [selectedViewController release];
+            selectedViewController = [[viewControllers objectAtIndex:0] retain];
 			[self loadTabs];
 		}
 	}
-	
-	self.selectedIndex = 0;
 }
 
 - (void)dealloc {
