@@ -36,7 +36,7 @@
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	[self.backgroundImage drawAtPoint:CGPointMake(0, 0)];
 	[[UIColor blackColor] set];
-	CGContextFillRect(context, CGRectMake(0, self.bounds.size.height / 2, self.bounds.size.width, self.bounds.size.height / 2));
+	CGContextFillRect(context, CGRectMake(0, (self.bounds.size.height / 2) + 1, self.bounds.size.width, self.bounds.size.height / 2));
 }
 
 - (void)setTabs:(NSArray *)array {
