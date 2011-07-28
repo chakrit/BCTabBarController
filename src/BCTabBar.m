@@ -21,8 +21,10 @@
 		self.arrow.frame = r;
 		[self addSubview:self.arrow];
 		self.userInteractionEnabled = YES;
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | 
-		                        UIViewAutoresizingFlexibleTopMargin;
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+			self.autoresizingMask |= UIViewAutoresizingFlexibleHeight;
+		}
 						 
 	}
 	
