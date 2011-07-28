@@ -14,7 +14,7 @@
 
 
 @implementation BCTabBarController
-@synthesize viewControllers, tabBar, selectedTab, selectedViewController, tabBarView;
+@synthesize viewControllers, tabBar, selectedTab, selectedViewController, tabBarView, delegate;
 
 - (void)loadView {
 	self.tabBarView = [[[BCTabBarView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
@@ -40,6 +40,10 @@
 		if ([self.selectedViewController isKindOfClass:[UINavigationController class]]) {
 			[(UINavigationController *)self.selectedViewController popToRootViewControllerAnimated:YES];
 		}
+
+        if ([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)]) {
+            [delegate tabBarController:self didSelectViewController:vc];
+        }
 	} else {
 		self.selectedViewController = vc;
 	}
