@@ -4,7 +4,7 @@
 @implementation UIViewController (BCTabBarController)
 
 - (NSString *)iconImageName {
-	return nil;
+	return [NSString stringWithFormat:@"%@.png", self.title];
 }
 
 @end
