@@ -21,9 +21,10 @@
 	self.view = self.tabBarView;
     self.view.clipsToBounds = YES;
 
-    CGFloat tabBarHeight = 44 + 6; // tabbar + arrow
+	CGFloat tabBarHeight = 44 + 6; // tabbar + arrow
+	CGFloat adjust = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? 1 : 0;
 	self.tabBar = [[[BCTabBar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - tabBarHeight, 
-															  self.view.bounds.size.width, tabBarHeight)]
+															  self.view.bounds.size.width, tabBarHeight + adjust)]
 				   autorelease];
 	self.tabBar.delegate = self;
 	
