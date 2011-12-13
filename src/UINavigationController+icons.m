@@ -4,7 +4,15 @@
 @implementation UINavigationController (BCTabBarController)
 
 - (NSString *)iconImageName {
-	return [[self.viewControllers objectAtIndex:0] iconImageName];
+	return [self.topViewController iconImageName];
+}
+
+- (UIImage *)iconImage {
+	return [self.topViewController iconImage];
+}
+
+- (UIImage *)selectedIconImage {
+	return [self.topViewController selectedIconImage];
 }
 
 @end

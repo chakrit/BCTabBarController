@@ -5,5 +5,6 @@
 }
 
 - (id)initWithIconImageName:(NSString *)imageName;
+- (id)initWithIconImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage;
 
 @end

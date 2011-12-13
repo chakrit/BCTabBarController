@@ -9,18 +9,22 @@
 @synthesize rightBorder, background;
 
 - (id)initWithIconImageName:(NSString *)imageName {
+    NSString *selectedName = [NSString stringWithFormat:@"%@-selected.%@",
+                              [imageName stringByDeletingPathExtension],
+                              [imageName pathExtension]];
+    return [self initWithIconImage:[UIImage imageNamed:imageName]
+                     selectedImage:[UIImage imageNamed:selectedName]];
+}
+
+- (id)initWithIconImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage {
 	if (self = [super init]) {
 		self.adjustsImageWhenHighlighted = NO;
 		self.background = [UIImage imageNamed:@"BCTabBarController.bundle/tab-background.png"];
 		self.rightBorder = [UIImage imageNamed:@"BCTabBarController.bundle/tab-right-border.png"];
 		self.backgroundColor = [UIColor clearColor];
 		
-		NSString *selectedName = [NSString stringWithFormat:@"%@-selected.%@",
-								   [imageName stringByDeletingPathExtension],
-								   [imageName pathExtension]];
-		
-		[self setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-		[self setImage:[UIImage imageNamed:selectedName] forState:UIControlStateSelected];
+		[self setImage:normalImage forState:UIControlStateNormal];
+		[self setImage:selectedImage forState:UIControlStateSelected];
 	}
 	return self;
 }
