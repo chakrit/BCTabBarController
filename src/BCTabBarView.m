@@ -29,10 +29,13 @@
 	[contentView layoutSubviews];
 }
 
-- (void)drawRect:(CGRect)rect {
-	CGContextRef c = UIGraphicsGetCurrentContext();
-	[RGBCOLOR(230, 230, 230) set];
-	CGContextFillRect(c, self.bounds);
-}
+// In iOS 5 a 1px offset appears at the bottom of the view.
+// Fix by removing light gray background.
+// A better fix would be to prevent the offset in the first place.
+//- (void)drawRect:(CGRect)rect {
+//	CGContextRef c = UIGraphicsGetCurrentContext();
+//	[RGBCOLOR(230, 230, 230) set];
+//	CGContextFillRect(c, self.bounds);
+//}
 
 @end
