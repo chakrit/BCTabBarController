@@ -21,7 +21,7 @@
 		self.arrow.frame = r;
 		[self addSubview:self.arrow];
 		self.userInteractionEnabled = YES;
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | 
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | 
 		                        UIViewAutoresizingFlexibleTopMargin;
 						 
 	}
