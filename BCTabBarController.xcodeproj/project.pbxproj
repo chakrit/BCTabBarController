@@ -354,6 +354,7 @@
 				GCC_PREFIX_HEADER = src/base/prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = BCTabBarController;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -368,6 +369,7 @@
 				GCC_PREFIX_HEADER = src/base/prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = BCTabBarController;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
